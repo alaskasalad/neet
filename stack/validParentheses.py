@@ -3,15 +3,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        # keys are the closing one 
         closeToOpen = { ")" : "(", "]" : "[", "}" : "{" }
 
-        for char in s:
-            if char in closeToOpen:
-                if stack and stack[-1] == closeToOpen[char]:
+        for c in s:
+            if c in closeToOpen:
+                if stack and stack[-1] == closeToOpen[c]:
                     stack.pop()
                 else:
                     return False
+            else:
+                stack.append(c)
+
+        return True if not stack else False
                 
 # time: O(n^2)
 # space: O(n)
