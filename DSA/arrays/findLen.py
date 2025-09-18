@@ -8,6 +8,6 @@ def find_length(nums, k):
         while curr > k:
             curr -= nums[left]
             left += 1
-        ans = max(ans, right - left +1)
+        ans = max(ans, right - left + 1)
 
-    return ans 
+    return ans
